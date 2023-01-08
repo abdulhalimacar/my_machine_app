@@ -19,22 +19,20 @@ cons_comb = st.sidebar.slider("what is consumption of your car?",3,10,step=1)
 my_dict = {
         "car_model":car_model,
         "hp_kW":hp_kW,
-        "displacement_cc":Displacement_cc,
+        "Displacement_cc":Displacement_cc,
         "km":km,
         "age":age,
-        "gearing_type":Gearing_Type, 
-        "consumption":cons_comb
+        "Gearing_Type":Gearing_Type, 
+        "cons_comb":cons_comb
 }
 
-df = pd.DataFrame.from_dict([my_dict])
-
+data = pd.DataFrame.from_dict([my_dict])
 
 
 st.header('the configuration of your car:')
 
-st.table(df)
+st.table(data)
 
 if st.button("predict"):
-    pred = model.predict(df)
+    pred = model.predict(data)
     st.write(pred[0])
- 
